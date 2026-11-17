@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabor da Vila: cardápio digital</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Cabeçalho com nome e menu de navegação -->
+  <header class="topo" id="inicio">
+    <div class="topo-conteudo">
+      <p class="marca">Sabor <span>da Vila</span></p>
+      <nav class="menu">
+        <a href="#inicio">Início</a>
+        <a href="#categorias">Cardápio</a>
+        <a href="#pedido">Meu pedido ({{ITENS}})</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Apresentação do estabelecimento -->
+    <section class="apresentacao">
+      <p class="selo">Lanchonete e pizzaria</p>
+      <h1>Sabor de casa, feito na hora.</h1>
+      <p class="chamada">Lanches, hambúrgueres, pizzas, bebidas e sobremesas preparados com ingredientes frescos. Monte seu pedido e confira o total antes de confirmar.</p>
+      <a class="botao" href="#categorias">Ver o cardápio</a>
+    </section>
+
+    <!-- Categorias de produtos -->
+    <section class="secao" id="categorias">
+      <h2>Categorias</h2>
+      <ul class="lista-categorias">
+        <li><a href="#lanches">Lanches</a></li>
+        <li><a href="#hamburgueres">Hambúrgueres</a></li>
+        <li><a href="#pizzas">Pizzas</a></li>
+        <li><a href="#bebidas">Bebidas</a></li>
+        <li><a href="#sobremesas">Sobremesas</a></li>
+      </ul>
+    </section>
+
+    <!-- Formulário que envia o pedido ao Python -->
+    <form method="post" action="/#pedido" novalidate>
+       
+      <!-- Categoria: Lanches -->
+      <section class="secao" id="lanches">
+        <h2>Lanches</h2>
+        <div class="grade-produtos">
+          <article class="produto">
+            <img src="imagens/misto.svg" alt="Misto quente">
+            <h3>Misto Quente</h3>
+            <p class="descricao">Pão de forma, presunto e queijo na chapa.</p>
+            <p class="preco">{{PRECO_MISTO}}</p>
+            <label>Quantidade
+              <input type="number" name="qtd_misto" value="{{QTD_MISTO}}" min="0" max="20">
+            </label>
+          </article>
+          <article class="produto">
+            <img src="imagens/cachorro.svg" alt="Cachorro-quente">
+            <h3>Cachorro-Quente</h3>
+            <p class="descricao">Pão, salsicha, molho de tomate, milho e batata palha.</p>
+            <p class="preco">{{PRECO_CACHORRO}}</p>
+            <label>Quantidade
+              <input type="number" name="qtd_cachorro" value="{{QTD_CACHORRO}}" min="0" max="20">
+            </label>
+          </article>
+          <article class="produto">
+            <img src="imagens/natural.svg" alt="Sanduíche natural">
+            <h3>Sanduíche Natural</h3>
+            <p class="descricao">Pão integral, frango desfiado, cenoura e alface.</p>
+            <p class="preco">{{PRECO_NATURAL}}</p>
+            <label>Quantidade
+              <input type="number" name="qtd_natural" value="{{QTD_NATURAL}}" min="0" max="20">
+            </label>
+          </article>
+        </div>
+      </section>
+
+      <!-- Categoria: Hambúrgueres -->
+      <section class="secao" id="hamburgueres">
+        <h2>Hambúrgueres</h2>
+        <div class="grade-produtos">
+          <article class="produto">
+            <img src="imagens/xburguer.svg" alt="X-Burguer">
+            <h3>X-Burguer</h3>
+            <p class="descricao">Pão, hambúrguer de 120 g, queijo e molho da casa.</p>
+            <p class="preco">{{PRECO_XBURGUER}}</p>
+            <label>Quantidade
+              <input type="number" name="qtd_xburguer" value="{{QTD_XBURGUER}}" min="0" max="20">
+            </label>
+          </article>
+          <article class="produto">
+            <img src="imagens/xsalada.svg" alt="X-Salada">
+            <h3>X-Salada</h3>
+            <p class="descricao">X-Burguer com alface, tomate e cebola roxa.</p>
+            <p class="preco">{{PRECO_XSALADA}}</p>
+            <label>Quantidade
+              <input type="number" name="qtd_xsalada" value="{{QTD_XSALADA}}" min="0" max="20">
+            </label>
+          </article>
+          <article class="produto">
+            <img src="imagens/xbacon.svg" alt="X-Bacon">
+            <h3>X-Bacon</h3>
+            <p class="descricao">Hambúrguer de 120 g, queijo, bacon crocante e maionese.</p>
+            <p class="preco">{{PRECO_XBACON}}</p>
+            <label>Quantidade
+              <input type="number" name="qtd_xbacon" value="{{QTD_XBACON}}" min="0" max="20">
+            </label>
+          </article>
+        </div>
+      </section>
+
+      <!-- Categoria: Pizzas -->
+      <section class="secao" id="pizzas">
+        <h2>Pizzas individuais</h2>
+        <div class="grade-produtos">
+          <article class="produto">
+            <img src="imagens/mussarela.svg" alt="Pizza de mussarela">
+            <h3>Pizza de Mussarela</h3>
+            <p class="descricao">Molho de tomate, mussarela e orégano. Quatro fatias.</p>
+            <p class="preco">{{PRECO_MUSSARELA}}</p>
+            <label>Quantidade
+              <input type="number" name="qtd_mussarela" value="{{QTD_MUSSARELA}}" min="0" max="20">
+            </label>
+          </article>
+          <article class="produto">
+            <img src="imagens/calabresa.svg" alt="Pizza de calabresa">
+            <h3>Pizza de Calabresa</h3>
+            <p class="descricao">Calabresa fatiada, cebola e mussarela. Quatro fatias.</p>
+            <p class="preco">{{PRECO_CALABRESA}}</p>
+            <label>Quantidade
+              <input type="number" name="qtd_calabresa" value="{{QTD_CALABRESA}}" min="0" max="20">
+            </label>
+          </article>
+          <article class="produto">
+            <img src="imagens/frango.svg" alt="Pizza de frango">
+            <h3>Pizza de Frango</h3>
+            <p class="descricao">Frango desfiado, requeijão e milho. Quatro fatias.</p>
+            <p class="preco">{{PRECO_FRANGO}}</p>
+            <label>Quantidade
+              <input type="number" name="qtd_frango" value="{{QTD_FRANGO}}" min="0" max="20">
+            </label>
+          </article>
+        </div>
+      </section>
+
+      <!-- Categoria: Bebidas -->
+      <section class="secao" id="bebidas">
+        <h2>Bebidas</h2>
+        <div class="grade-produtos">
+          <article class="produto">
+            <img src="imagens/suco.svg" alt="Suco de laranja">
+            <h3>Suco de Laranja</h3>
+            <p class="descricao">Natural, feito na hora. Copo de 400 ml.</p>
+            <p class="preco">{{PRECO_SUCO}}</p>
+            <label>Quantidade
+              <input type="number" name="qtd_suco" value="{{QTD_SUCO}}" min="0" max="20">
+            </label>
+          </article>
+          <article class="produto">
+            <img src="imagens/refri.svg" alt="Refrigerante em lata">
+            <h3>Refrigerante Lata</h3>
+            <p class="descricao">Lata de 350 ml. Pergunte pelos sabores do dia.</p>
+            <p class="preco">{{PRECO_REFRI}}</p>
+            <label>Quantidade
+              <input type="number" name="qtd_refri" value="{{QTD_REFRI}}" min="0" max="20">
+            </label>
+          </article>
+          <article class="produto">
+            <img src="imagens/agua.svg" alt="Garrafa de água">
+            <h3>Água Mineral</h3>
+            <p class="descricao">Garrafa de 500 ml, com ou sem gás.</p>
+            <p class="preco">{{PRECO_AGUA}}</p>
+            <label>Quantidade
+              <input type="number" name="qtd_agua" value="{{QTD_AGUA}}" min="0" max="20">
+            </label>
+          </article>
+        </div>
+      </section>
+
+      <!-- Categoria: Sobremesas -->
+      <section class="secao" id="sobremesas">
+        <h2>Sobremesas</h2>
+        <div class="grade-produtos">
+          <article class="produto">
+            <img src="imagens/pudim.svg" alt="Pudim de leite">
+            <h3>Pudim de Leite</h3>
+            <p class="descricao">Fatia generosa com calda de caramelo.</p>
+            <p class="preco">{{PRECO_PUDIM}}</p>
+            <label>Quantidade
+              <input type="number" name="qtd_pudim" value="{{QTD_PUDIM}}" min="0" max="20">
+            </label>
+          </article>
+          <article class="produto">
+            <img src="imagens/brownie.svg" alt="Brownie">
+            <h3>Brownie</h3>
+            <p class="descricao">Chocolate meio amargo com castanhas.</p>
+            <p class="preco">{{PRECO_BROWNIE}}</p>
+            <label>Quantidade
+              <input type="number" name="qtd_brownie" value="{{QTD_BROWNIE}}" min="0" max="20">
+            </label>
+          </article>
+          <article class="produto">
+            <img src="imagens/acai.svg" alt="Açaí na tigela">
+            <h3>Açaí na Tigela</h3>
+            <p class="descricao">Tigela de 300 ml com banana e granola.</p>
+            <p class="preco">{{PRECO_ACAI}}</p>
+            <label>Quantidade
+              <input type="number" name="qtd_acai" value="{{QTD_ACAI}}" min="0" max="20">
+            </label>
+          </article>
+        </div>
+      </section>
+
+      <!-- Identificação do cliente, resumo e confirmação -->
+      <section class="secao" id="pedido">
+        <h2>Meu pedido</h2>
+        <div class="pedido">
+          <div class="cartao cliente">
+            <h3>Seus dados</h3>
+            <label>Seu nome
+              <input type="text" name="nome" value="{{NOME}}" maxlength="40" placeholder="Ex.: Ana Souza">
+            </label>
+            <fieldset class="opcoes">
+              <legend>Como você prefere?</legend>
+              <label class="opcao">
+                <input type="radio" name="consumo" value="retirada" {{MARCAR_RETIRADA}}>
+                Retirada no balcão
+              </label>
+              <label class="opcao">
+                <input type="radio" name="consumo" value="local" {{MARCAR_LOCAL}}>
+                Consumo no local
+              </label>
+            </fieldset>
+            <button type="submit" name="acao" value="calcular" class="botao botao-claro">Atualizar resumo</button>
+            <button type="submit" name="acao" value="confirmar" class="botao">Confirmar pedido simulado</button>
+            <a class="link-novo" href="/">Começar um novo pedido</a>
+          </div>
+          <div class="cartao resumo">
+            <h3>Resumo do pedido</h3>
+            {{MENSAGENS}}
+            {{RESUMO}}
+          </div>
+        </div>
+        {{CONFIRMACAO}}
+      </section>
+    </form>
+  </main>
+
+  <!-- Rodapé com informações do estabelecimento -->
+  <footer class="rodape" id="contato">
+    <div class="rodape-conteudo">
+      <div>
+        <p class="marca">Sabor <span>da Vila</span></p>
+        <p>Lanchonete e pizzaria</p>
+      </div>
+      <div>
+        <h4>Endereço</h4>
+        <p>Rua das Palmeiras, 120, Centro</p>
+        <p>Telefone: (00) 0000-0000</p>
+      </div>
+      <div>
+        <h4>Horário</h4>
+        <p>Terça a domingo, das 17h às 23h</p>
+      </div>
+    </div>
+    <p class="aviso">Estabelecimento fictício criado para uma atividade escolar. Preços ilustrativos.</p>
+  </footer>
+</body>
+</html>

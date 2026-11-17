@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+<rect width="400" height="300" fill="#DDEBEE"/>
+<circle cx="340" cy="50" r="70" fill="#ffffff" opacity="0.25"/>
+<circle cx="40" cy="270" r="60" fill="#ffffff" opacity="0.2"/>
+<ellipse cx="200" cy="262" rx="110" ry="14" fill="#000000" opacity="0.08"/>
+<rect x="215" y="40" width="10" height="140" rx="4" fill="#E5534B" transform="rotate(12 220 110)"/>
+<path d="M140 80 L260 80 L245 255 L155 255 Z" fill="#ffffff" opacity="0.85" stroke="#B9CBD1" stroke-width="4"/>
+<path d="M146 110 L254 110 L244 248 L156 248 Z" fill="#F39A1E"/>
+<path d="M150 110 L250 110 L248 128 L152 128 Z" fill="#F7B54A"/>
+<circle cx="262" cy="90" r="34" fill="#F7A531" stroke="#E07F12" stroke-width="5"/>
+<circle cx="262" cy="90" r="24" fill="#FBC86A"/>
+<line x1="262" y1="90" x2="286" y2="90" stroke="#F39A1E" stroke-width="2"/>
+<line x1="262" y1="90" x2="274.0" y2="110.88" stroke="#F39A1E" stroke-width="2"/>
+<line x1="262" y1="90" x2="250.0" y2="110.88" stroke="#F39A1E" stroke-width="2"/>
+<line x1="262" y1="90" x2="238" y2="90" stroke="#F39A1E" stroke-width="2"/>
+<line x1="262" y1="90" x2="250.0" y2="69.12" stroke="#F39A1E" stroke-width="2"/>
+<line x1="262" y1="90" x2="274.0" y2="69.12" stroke="#F39A1E" stroke-width="2"/>
+</svg>

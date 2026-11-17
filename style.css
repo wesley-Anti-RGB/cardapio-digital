@@ -1,0 +1,423 @@
+/* Cardápio Digital: visual da Sabor da Vila */
+
+/* 1. Variáveis de cor */
+:root {
+  --principal: #9e2b25;
+  --principal-escuro: #7a1f1a;
+  --destaque: #e9a23b;
+  --texto: #2b2522;
+  --texto-suave: #6b625c;
+  --fundo: #f7f4f0;
+  --cartao: #ffffff;
+  --borda: #e7e0d8;
+}
+
+/* 2. Base da página */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* 3. Cabeçalho e menu (Flexbox) */
+.topo {
+  background: var(--texto);
+}
+
+.topo-conteudo {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.marca {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.marca span {
+  color: var(--destaque);
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.menu a {
+  color: #f1e9e1;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.menu a:hover {
+  color: var(--destaque);
+}
+
+/* 4. Conteúdo principal e apresentação */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.apresentacao {
+  text-align: center;
+  padding: 56px 0 44px;
+}
+
+.selo {
+  display: inline-block;
+  margin: 0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: #f3e3d3;
+  color: var(--principal-escuro);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.apresentacao h1 {
+  margin: 16px 0 12px;
+  font-size: 40px;
+  line-height: 1.2;
+}
+
+.chamada {
+  max-width: 640px;
+  margin: 0 auto 24px;
+  color: var(--texto-suave);
+}
+
+/* 5. Botões */
+.botao {
+  display: inline-block;
+  padding: 12px 22px;
+  border: 2px solid var(--principal);
+  border-radius: 8px;
+  background: var(--principal);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background: var(--principal-escuro);
+}
+
+.botao-claro {
+  background: #ffffff;
+  color: var(--principal);
+}
+
+.botao-claro:hover {
+  background: #fbefe9;
+}
+
+/* 6. Seções e lista de categorias */
+.secao {
+  padding: 32px 0;
+  border-top: 1px solid var(--borda);
+}
+
+.secao h2 {
+  margin: 0 0 18px;
+  font-size: 28px;
+  color: var(--principal-escuro);
+}
+
+.lista-categorias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lista-categorias a {
+  display: block;
+  padding: 10px 20px;
+  border: 1px solid var(--borda);
+  border-radius: 24px;
+  background: var(--cartao);
+  color: var(--texto);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.lista-categorias a:hover {
+  border-color: var(--principal);
+  color: var(--principal);
+}
+
+/* 7. Cartões de produto (CSS Grid) */
+.grade-produtos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.produto {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background: var(--cartao);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.produto img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.produto h3 {
+  margin: 12px 0 4px;
+  font-size: 19px;
+}
+
+.descricao {
+  flex-grow: 1;
+  margin: 0 0 10px;
+  color: var(--texto-suave);
+  font-size: 14px;
+}
+
+.preco {
+  margin: 0 0 12px;
+  color: var(--principal);
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* 8. Campos do formulário */
+label {
+  display: block;
+  color: var(--texto-suave);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input[type="number"],
+input[type="text"] {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  border: 1px solid #cfc6bc;
+  border-radius: 8px;
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.produto input[type="number"] {
+  width: 100px;
+}
+
+input:focus {
+  outline: 2px solid var(--destaque);
+  border-color: var(--destaque);
+}
+
+/* 9. Área do pedido */
+.pedido {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.cartao {
+  padding: 20px;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background: var(--cartao);
+}
+
+.cartao h3 {
+  margin-top: 0;
+}
+
+.opcoes {
+  margin: 16px 0;
+  padding: 10px 14px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+}
+
+.opcao {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+  color: var(--texto);
+  font-weight: normal;
+}
+
+.cliente .botao {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.link-novo {
+  display: block;
+  margin-top: 14px;
+  color: var(--texto-suave);
+  text-align: center;
+  text-decoration: none;
+}
+
+.link-novo:hover {
+  text-decoration: underline;
+}
+
+/* 10. Tabela do resumo */
+.tabela-pedido {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.tabela-pedido th,
+.tabela-pedido td {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--borda);
+  text-align: left;
+}
+
+.tabela-pedido th {
+  background: #f3ece4;
+}
+
+.tabela-pedido tfoot td {
+  border-bottom: none;
+  color: var(--principal);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.vazio {
+  color: var(--texto-suave);
+}
+
+/* 11. Mensagens e Confirmação */
+.mensagem {
+  margin: 0 0 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.info { background: #eef2f6; color: #2f4858; }
+.ok { background: #e8f4ec; color: #22603a; }
+.alerta { background: #fdf3e1; color: #85570d; }
+.erro { background: #fbe9e7; color: #9e2b25; }
+
+.confirmacao {
+  margin-top: 20px;
+  padding: 20px 24px;
+  border-left: 6px solid #2e7d4f;
+  border-radius: 8px;
+  background: #e8f4ec;
+}
+
+.confirmacao h3 {
+  margin-top: 0;
+  color: #22603a;
+}
+
+.nota {
+  color: var(--texto-suave);
+  font-size: 13px;
+}
+
+/* 12. Rodapé */
+.rodape {
+  margin-top: 40px;
+  padding: 32px 20px 20px;
+  background: var(--texto);
+  color: #e9e1d8;
+}
+
+.rodape-conteudo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.rodape h4 {
+  margin: 0 0 8px;
+  color: var(--destaque);
+}
+
+.rodape p {
+  margin: 4px 0;
+}
+
+.rodape .aviso {
+  max-width: 1100px;
+  margin: 24px auto 0;
+  padding-top: 14px;
+  border-top: 1px solid #4a403a;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* 13. Responsividade: tablets e celulares */
+@media (max-width: 900px) {
+  .grade-produtos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .pedido {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .apresentacao h1 {
+    font-size: 30px;
+  }
+  
+  .grade-produtos,
+  .rodape-conteudo {
+    grid-template-columns: 1fr;
+  }
+  
+  .menu {
+    gap: 12px;
+  }
+  
+  .tabela-pedido {
+    font-size: 13px;
+  }
+}
